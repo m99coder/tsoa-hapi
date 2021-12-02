@@ -1,0 +1,16 @@
+{
+  "name": "tsoa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Marco Lehmann <m99@posteo.de>",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "tsoa": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/hapi": "^18.0.6",
+    "@types/node": "^16.11.11",
+    "typescript": "^4.5.2"
+  }
+}
