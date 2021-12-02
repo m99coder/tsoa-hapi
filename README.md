@@ -101,7 +101,7 @@ node_modules
     "fmt": "eslint '{src,test}/**/*.ts' --fix",
     "gen": "tsoa spec-and-routes",
     "lint": "eslint '{src,test}/**/*.ts'",
-    "start": "node dist/src/server.js"
+    "start": "node dist/server.js"
   }
 }
 ```
