@@ -18,36 +18,81 @@ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 yarn run eslint --init
 ```
 
-`.eslintrc`
+`tsconfig.eslint.json`
 
-```
+```json
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "comma-dangle": [
-      "error",
-      "always-multiline"
+  "compilerOptions": {
+    "types": [
+      "@types/node"
     ],
-    "semi": [
-      "error",
-      "never"
-    ]
-  }
+    "noEmit": true,
+    "allowJs": true,
+  },
+  "extends": "./tsconfig.json",
+  "include": [
+    ".eslintrc.js",
+    "src/**/*.ts",
+    "test/**/*.ts",
+  ]
+}
+```
+
+`.eslintrc.js`
+
+```javascript
+module.exports = {
+  root: true,
+  env: {
+    es6: true,
+    node: true,
+  },
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    '@typescript-eslint',
+  ],
+  parserOptions: {
+    project: ['./tsconfig.eslint.json'],
+    sourceType: 'module',
+    tsConfigRootDir: __dirname,
+    warnOnUnsupportedTypeScriptVersion: false,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  ],
+  rules: {
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      multiline: {
+        delimiter: 'none',
+        requireLast: true,
+      },
+      singleline: {
+        delimiter: 'semi',
+        requireLast: false,
+      },
+    }],
+    'comma-dangle': [
+      'error',
+      'always-multiline',
+    ],
+    quotes: [
+      'error',
+      'single',
+    ],
+    semi: [
+      'error',
+      'never',
+    ],
+  },
 }
 ```
 
 `.eslintignore`
 
 ```
+build
 node_modules
 ```
 
