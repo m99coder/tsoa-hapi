@@ -32,6 +32,8 @@ module.exports = {
         requireLast: false,
       },
     }],
+    'require-await': 'off',
+    '@typescript-eslint/require-await': 'off',
     'semi': 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'quotes': 'off',

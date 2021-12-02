@@ -11,7 +11,7 @@ yarn add tsoa @hapi/hapi
 
 # typescript
 yarn add -D typescript @types/node @types/hapi
-yarn run tsc --init
+yarn run tsc --init --experimentalDecorators
 
 # eslint
 yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
@@ -75,6 +75,8 @@ module.exports = {
         requireLast: false,
       },
     }],
+    'require-await': 'off',
+    '@typescript-eslint/require-await': 'off',
     'semi': 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'quotes': 'off',
@@ -117,3 +119,9 @@ node_modules
   }
 }
 ```
+
+## Model, Service, and Controller
+
+* create `src/users/users.ts` exporting the `User` interface
+* create `src/users/users-service.ts` exporting the `UsersCreationParams` type and `UsersService` class
+* create `src/users/users-controller.ts` exporting the `UsersController` class
