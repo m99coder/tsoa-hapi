@@ -20,6 +20,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   rules: {
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     '@typescript-eslint/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'none',
@@ -30,17 +32,9 @@ module.exports = {
         requireLast: false,
       },
     }],
-    'comma-dangle': [
-      'error',
-      'always-multiline',
-    ],
-    quotes: [
-      'error',
-      'single',
-    ],
-    semi: [
-      'error',
-      'never',
-    ],
+    'semi': 'off',
+    '@typescript-eslint/semi': ['error', 'never'],
+    'quotes': 'off',
+    '@typescript-eslint/quotes': ['error', 'single'],
   },
 }
