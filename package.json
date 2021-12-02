@@ -5,8 +5,9 @@
   "author": "Marco Lehmann <m99@posteo.de>",
   "license": "MIT",
   "scripts": {
-    "build": "tsoa spec-and-routes && tsc --build --clean",
+    "build": "tsc",
     "fmt": "eslint '{src,test}/**/*.ts' --fix",
+    "gen": "tsoa spec-and-routes",
     "lint": "eslint '{src,test}/**/*.ts'",
     "start": "node dist/src/server.js"
   },

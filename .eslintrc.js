@@ -22,8 +22,6 @@ module.exports = {
   rules: {
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-    'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'none',

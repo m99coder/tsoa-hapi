@@ -11,7 +11,7 @@ yarn add tsoa @hapi/hapi
 
 # typescript
 yarn add -D typescript @types/node @types/hapi__hapi
-yarn run tsc --init --outDir ./dist --target es2021 --experimentalDecorators
+yarn run tsc --init --target es2021 --experimentalDecorators --outDir ./dist
 
 # eslint
 yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
@@ -65,8 +65,6 @@ module.exports = {
   rules: {
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-    'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'none',
@@ -99,8 +97,9 @@ node_modules
 ```json
 {
   "scripts": {
-    "build": "tsoa spec-and-routes && tsc --build --clean",
+    "build": "tsc",
     "fmt": "eslint '{src,test}/**/*.ts' --fix",
+    "gen": "tsoa spec-and-routes",
     "lint": "eslint '{src,test}/**/*.ts'",
     "start": "node dist/src/server.js"
   }
@@ -155,4 +154,31 @@ const host = process.env.HOST || 'localhost'
 const port = Number(process.env.PORT) || 3000
 
 void app(host, port).start()
+console.log(`Server running on ${host}:${port}`)
+```
+
+## Requests
+
+```bash
+yarn gen
+yarn build
+yarn start
+```
+
+```bash
+# GET /users/{id}
+curl -i http://localhost:3000/users/1 \
+  -H 'Accept: application/json'
+
+# POST /users
+curl -i -X POST http://localhost:3000/users \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"john@doe.com","name":"John Doe","phoneNumbers":[]}'
+
+# automatic validation
+curl -s -X POST http://localhost:3000/users \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"Foo Bar"}' | jq
 ```
