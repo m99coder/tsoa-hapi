@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Marco Lehmann <m99@posteo.de>",
   "license": "MIT",
+  "scripts": {
+    "fmt": "eslint '{src,test}/**/*.ts' --fix",
+    "lint": "eslint '{src,test}/**/*.ts'"
+  },
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
     "tsoa": "^3.14.1"
@@ -11,6 +15,9 @@
   "devDependencies": {
     "@types/hapi": "^18.0.6",
     "@types/node": "^16.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.3.0",
     "typescript": "^4.5.2"
   }
 }
