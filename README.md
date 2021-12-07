@@ -174,15 +174,52 @@ yarn start
 curl -i http://localhost:3000/users/1 \
   -H 'Accept: application/json'
 
-# POST /users
+# POST /users and see headers
 curl -i -X POST http://localhost:3000/users \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{"email":"john@doe.com","name":"John Doe","phoneNumbers":[]}'
 
-# automatic validation
+# POST /users and see success response
+curl -s -X POST http://localhost:3000/users \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"john@doe.com","name":"John Doe","phoneNumbers":[]}' | jq
+
+# POST /users and see error response
 curl -s -X POST http://localhost:3000/users \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{"name":"Foo Bar"}' | jq
+```
+
+## Live reloading
+
+```bash
+yarn add -D nodemon ts-node concurrently
+```
+
+`nodemon.json`
+
+```json
+{
+  "exec": "ts-node src/server.ts",
+  "watch": ["src"],
+  "ignore": ["src/routes.ts"],
+  "ext": "ts"
+}
+```
+
+`package.json`
+
+```json
+{
+  "scripts": {
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+  }
+}
+```
+
+```bash
+yarn dev
 ```
