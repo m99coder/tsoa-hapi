@@ -190,7 +190,7 @@ curl -s -X POST http://localhost:3000/users \
 curl -s -X POST http://localhost:3000/users \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -d '{"name":"Foo Bar"}' | jq
+  -d '{"id":123,"name":"Foo Bar","status":"Happy"}' | jq
 ```
 
 ## Live reloading
