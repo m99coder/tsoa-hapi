@@ -5,9 +5,7 @@ module.exports = {
     node: true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     project: ['./tsconfig.eslint.json'],
     sourceType: 'module',
@@ -18,25 +16,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
   ],
   rules: {
-    'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-    '@typescript-eslint/member-delimiter-style': ['error', {
-      multiline: {
-        delimiter: 'none',
-        requireLast: true,
-      },
-      singleline: {
-        delimiter: 'semi',
-        requireLast: false,
-      },
-    }],
     'require-await': 'off',
     '@typescript-eslint/require-await': 'off',
-    'semi': 'off',
-    '@typescript-eslint/semi': ['error', 'never'],
-    'quotes': 'off',
-    '@typescript-eslint/quotes': ['error', 'single'],
+    'prettier/prettier': 2,
   },
 }

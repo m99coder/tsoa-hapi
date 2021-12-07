@@ -16,6 +16,9 @@ yarn run tsc --init --target es2021 --experimentalDecorators --outDir ./dist
 # eslint
 yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 yarn run eslint --init
+
+# prettier
+yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
 `tsconfig.eslint.json`
@@ -48,9 +51,7 @@ module.exports = {
     node: true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     project: ['./tsconfig.eslint.json'],
     sourceType: 'module',
@@ -61,26 +62,12 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
   ],
   rules: {
-    'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-    '@typescript-eslint/member-delimiter-style': ['error', {
-      multiline: {
-        delimiter: 'none',
-        requireLast: true,
-      },
-      singleline: {
-        delimiter: 'semi',
-        requireLast: false,
-      },
-    }],
     'require-await': 'off',
     '@typescript-eslint/require-await': 'off',
-    'semi': 'off',
-    '@typescript-eslint/semi': ['error', 'never'],
-    'quotes': 'off',
-    '@typescript-eslint/quotes': ['error', 'single'],
+    'prettier/prettier': 2,
   },
 }
 ```
@@ -92,13 +79,30 @@ build
 node_modules
 ```
 
+`.prettierrc`
+
+```
+{
+  "semi": false,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 80
+}
+```
+
+`.prettierignore`
+
+```
+src/routes.ts
+```
+
 `package.json`
 
 ```json
 {
   "scripts": {
     "build": "tsc",
-    "fmt": "eslint '{src,test}/**/*.ts' --fix",
+    "fmt": "prettier --config .prettierrc '{src,test}/**/*.ts' --write --no-color",
     "gen": "tsoa spec-and-routes",
     "lint": "eslint '{src,test}/**/*.ts'",
     "start": "node dist/server.js"
