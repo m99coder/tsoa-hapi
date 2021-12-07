@@ -223,3 +223,25 @@ yarn add -D nodemon ts-node concurrently
 ```bash
 yarn dev
 ```
+
+## OpenAPI specification
+
+```bash
+yarn add -D redoc-cli
+```
+
+`package.json`
+
+```json
+{
+  "scripts": {
+    "bundle:api-docs": "redoc-cli bundle dist/swagger.json -o dist/api-docs.html",
+    "serve:api-docs": "redoc-cli serve dist/swagger.json",
+  }
+}
+```
+
+```bash
+yarn bundle:api-docs
+yarn serve:api-docs
+```

@@ -6,10 +6,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "bundle:api-docs": "redoc-cli bundle dist/swagger.json -o dist/api-docs.html",
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "fmt": "prettier --config .prettierrc '{src,test}/**/*.ts' --write --no-color",
     "gen": "tsoa spec-and-routes",
     "lint": "eslint '{src,test}/**/*.ts'",
+    "serve:api-docs": "redoc-cli serve dist/swagger.json",
     "start": "node dist/server.js"
   },
   "dependencies": {
@@ -27,6 +29,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
+    "redoc-cli": "^0.13.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   }
