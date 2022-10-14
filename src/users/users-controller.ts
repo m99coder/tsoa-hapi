@@ -8,8 +8,8 @@ import {
   Response,
   Route,
   SuccessResponse,
-} from '@tsoa/runtime'
-import { User } from './users'
+} from 'tsoa'
+import { User } from './user'
 import { UserCreationParams, UsersService } from './users-service'
 
 interface ValidateErrorJSON {

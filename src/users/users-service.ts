@@ -1,4 +1,4 @@
-import { User } from './users'
+import { User } from './user'
 
 export type UserCreationParams = Pick<User, 'email' | 'name' | 'phoneNumbers'>
 
