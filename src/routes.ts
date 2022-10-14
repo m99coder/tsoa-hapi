@@ -1,11 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-  import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse } from '@tsoa/runtime';
+  import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { UsersController } from './users/users-controller';
 import { boomify, isBoom, Payload } from '@hapi/boom';
-import { Request } from '@hapi/hapi';
+import { Request, RouteOptionsPreAllOptions } from '@hapi/hapi';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -56,6 +56,8 @@ export function RegisterRoutes(server: any) {
             path: '/users/{userId}',
             options: {
                 pre: [
+                    ...(fetchMiddlewares<RouteOptionsPreAllOptions>(UsersController)),
+                    ...(fetchMiddlewares<RouteOptionsPreAllOptions>(UsersController.prototype.getUser)),
                 ],
                 handler: function UsersController_getUser(request: any, h: any) {
                     const args = {
@@ -95,6 +97,8 @@ export function RegisterRoutes(server: any) {
             path: '/users',
             options: {
                 pre: [
+                    ...(fetchMiddlewares<RouteOptionsPreAllOptions>(UsersController)),
+                    ...(fetchMiddlewares<RouteOptionsPreAllOptions>(UsersController.prototype.createUser)),
                 ],
                 handler: function UsersController_createUser(request: any, h: any) {
                     const args = {
@@ -123,7 +127,7 @@ export function RegisterRoutes(server: any) {
                     const controller = new UsersController();
 
                     const promise = controller.createUser.apply(controller, validatedArgs as any);
-                    return promiseHandler(controller, promise, request, undefined, h);
+                    return promiseHandler(controller, promise, request, 201, h);
                 }
             }
         });
