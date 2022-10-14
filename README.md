@@ -2,7 +2,7 @@
 
 ## Setup
 
-```bash
+```shell
 git init
 yarn init -y
 
@@ -74,14 +74,14 @@ module.exports = {
 
 `.eslintignore`
 
-```
+```text
 build
 node_modules
 ```
 
 `.prettierrc`
 
-```
+```json
 {
   "semi": false,
   "trailingComma": "all",
@@ -92,7 +92,7 @@ node_modules
 
 `.prettierignore`
 
-```
+```text
 src/routes.ts
 ```
 
@@ -163,13 +163,13 @@ console.log(`Server running on ${host}:${port}`)
 
 ## Requests
 
-```bash
+```shell
 yarn gen
 yarn build
 yarn start
 ```
 
-```bash
+```shell
 # GET /users/{id}
 curl -i http://localhost:3000/users/1 \
   -H 'Accept: application/json'
@@ -195,7 +195,7 @@ curl -s -X POST http://localhost:3000/users \
 
 ## Live reloading
 
-```bash
+```shell
 yarn add -D nodemon ts-node concurrently
 ```
 
@@ -220,13 +220,13 @@ yarn add -D nodemon ts-node concurrently
 }
 ```
 
-```bash
+```shell
 yarn dev
 ```
 
 ## OpenAPI specification
 
-```bash
+```shell
 yarn add -D redoc-cli
 ```
 
@@ -241,7 +241,7 @@ yarn add -D redoc-cli
 }
 ```
 
-```bash
+```shell
 yarn bundle:api-docs
 yarn serve:api-docs
 ```
