@@ -15,11 +15,11 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
-    "@hapi/hapi": "^20.2.1",
+    "@hapi/hapi": "^20.2.2",
     "tsoa": "^3.14.1"
   },
   "devDependencies": {
-    "@types/hapi__hapi": "^20.0.9",
+    "@types/hapi__hapi": "^20.0.12",
     "@types/node": "^16.11.11",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
