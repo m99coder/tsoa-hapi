@@ -273,7 +273,7 @@
   resolved "https://registry.yarnpkg.com/@hapi/file/-/file-3.0.0.tgz#f1fd824493ac89a6fceaf89c824afc5ae2121c09"
   integrity sha512-w+lKW+yRrLhJu620jT3y+5g2mHqnKfepreykvdOcl9/6up8GrQQn+l3FRTsjHTKbkbfQFkuksHpdv2EcpKcJ4Q==
 
-"@hapi/hapi@*", "@hapi/hapi@^21.3.10":
+"@hapi/hapi@^21.3.10":
   version "21.3.10"
   resolved "https://registry.yarnpkg.com/@hapi/hapi/-/hapi-21.3.10.tgz#0357db7ca49415e50e5df80ba50ad3964f2a62f3"
   integrity sha512-CmEcmTREW394MaGGKvWpoOK4rG8tKlpZLs30tbaBzhCrhiL2Ti/HARek9w+8Ya4nMBGcd+kDAzvU44OX8Ms0Jg==
@@ -592,13 +592,6 @@
     promise.any "^2.0.2"
     reflect-metadata "^0.1.13"
     validator "^13.6.0"
-
-"@types/hapi__hapi@^21.0.0":
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/@types/hapi__hapi/-/hapi__hapi-21.0.0.tgz#4bf30e6a08a3adc164c9a301a7af3914d1060d35"
-  integrity sha512-urNzL9HQgOp4QbeEOG/Y/XIcU1pB6skGh7LKMd0hGkxb8oRmWe083x5LAuLjZNtuhRU6yKhiSjjqQEJ+3pWjpQ==
-  dependencies:
-    "@hapi/hapi" "*"
 
 "@types/http-cache-semantics@^4.0.1":
   version "4.0.1"
