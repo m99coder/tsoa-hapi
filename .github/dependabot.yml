@@ -12,3 +12,10 @@ updates:
     commit-message:
       prefix: "build"
       include: "scope"
+    ignore:
+      - dependency-name: "jest"
+        versions: [">=30.0.0"]
+      - dependency-name: "@types/node"
+        versions: [">22.0.0"]
+      - dependency-name: "node"
+        versions: [">22.0.0"]
