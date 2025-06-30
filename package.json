@@ -25,7 +25,7 @@
     "concurrently": "^9.2.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-prettier": "^5.5.1",
     "got": "^14.4.7",
     "nodemon": "^3.1.10",
     "package-json": "^10.0.1",
