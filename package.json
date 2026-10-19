@@ -27,9 +27,11 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "got": "^16.1.0",
+    "eslint-plugin-prettier": "^5.5.7",
+    "got": "^16.0.0",
     "nodemon": "^3.1.14",
     "package-json": "^10.0.1",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "redoc-cli": "^0.13.21",
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2"
