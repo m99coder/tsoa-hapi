@@ -28,7 +28,7 @@
     "eslint-plugin-prettier": "^5.5.6",
     "got": "^16.1.0",
     "eslint-plugin-prettier": "^5.5.7",
-    "got": "^16.0.0",
+    "got": "^16.2.0",
     "nodemon": "^3.1.14",
     "package-json": "^10.0.1",
     "prettier": "^3.9.10",
